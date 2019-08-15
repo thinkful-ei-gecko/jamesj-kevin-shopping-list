@@ -34,5 +34,12 @@ function checkItem() {
   });
 }
 
+function deleteItem() {
+  $('.shopping-list').on('click', '.shopping-item-delete', function(event) {
+    $(event.currentTarget).parent().parent().remove();
+  });
+}
+
 $(createItem);
 $(checkItem);
+$(deleteItem);
