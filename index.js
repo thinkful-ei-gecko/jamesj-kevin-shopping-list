@@ -22,4 +22,17 @@ function createItem(){
   });
 }
 
+function checkItem() {
+  $('.shopping-list').on('click', '.shopping-item-toggle', function(event) {
+    let itemName = $(event.currentTarget).parent().siblings('.shopping-item');
+    if (itemName.hasClass('shopping-item__checked')) {
+      itemName.removeClass('shopping-item__checked');
+    }
+    else {
+      itemName.addClass('shopping-item__checked');
+    }
+  });
+}
+
 $(createItem);
+$(checkItem);
