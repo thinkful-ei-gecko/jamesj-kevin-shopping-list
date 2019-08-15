@@ -24,19 +24,23 @@ function createItem(){
 
 function checkItem() {
   $('.shopping-list').on('click', '.shopping-item-toggle', function(event) {
+    // is this the best traversal method? we tried closest().
     let itemName = $(event.currentTarget).parent().siblings('.shopping-item');
-    if (itemName.hasClass('shopping-item__checked')) {
-      itemName.removeClass('shopping-item__checked');
-    }
-    else {
-      itemName.addClass('shopping-item__checked');
-    }
+
+    itemName.toggleClass('shopping-item__checked');
+    // this also works!
+    // if (itemName.hasClass('shopping-item__checked')) {
+    //   itemName.removeClass('shopping-item__checked');
+    // }
+    // else {
+    //   itemName.addClass('shopping-item__checked');
+    // }
   });
 }
 
 function deleteItem() {
   $('.shopping-list').on('click', '.shopping-item-delete', function(event) {
-    $(event.currentTarget).parent().parent().remove();
+    $(event.currentTarget).closest('li').remove();
   });
 }
 
